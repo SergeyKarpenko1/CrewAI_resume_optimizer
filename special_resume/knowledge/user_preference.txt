@@ -1,0 +1,5 @@
+User name is Karpenko Sergey.
+User is an Data Scientist/AI Engineer.
+User is interested in AI Agents/NLP.
+User is based in Moskow, Russia.
+User https://github.com/SergeyKarpenko1

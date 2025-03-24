@@ -1,0 +1,103 @@
+analyze_job_posting:
+  description: >
+    Analyze the job description provided in {job_description}.  
+    Extract key requirements, skills, and responsibilities.  
+    Ensure that the extracted information is structured and clear.
+    Use `clean_text_tool` to fix encoding issues before analysis.
+
+  expected_output: >
+    A structured list of key job requirements in Markdown format.
+
+  input_variables:
+    - job_description  # ✅ Передаём очищенный текст вместо URL
+  agent: researcher
+  async_execution: true
+
+analyze_resume:
+  description: >
+    Analyze the candidate's resume {resume_text}.  
+    Identify key competencies, skills, and achievements.  
+    Don't just list them—thoroughly analyze the resume!  
+
+    The analysis should include:
+    - Summary of candidate's strengths.
+    - Breakdown of skills (technical, soft skills).
+    - Areas for improvement (if applicable).
+
+      1. Content Analysis
+       - Compare resume content with job requirements
+       - Identify missing keywords and skills
+       - Analyze achievement descriptions
+
+      2. Structure Review
+       - Evaluate section organization
+       - Check formatting consistency
+       - Assess information hierarchy
+       - Verify contact details
+
+      3. Generate Suggestions
+       - Content improvements with before/after examples
+       - Skills to highlight based on job match
+       - Achievements to add or modify
+       - ATS optimization recommendations
+  expected_output: >
+    A structured Markdown document with resume analysis, including:
+    - Key competencies.
+    - Work experience evaluation.
+    - Strengths and areas for improvement.
+    - Analysis should be on Russian.
+  output_file: outputs/resume_analysis.md
+  input_variables:
+    - resume_text
+  agent: profiler
+  async_execution: true
+
+optimize_resume:
+  description: >
+    Using job analysis and candidate profile, adapt your resume to meet
+    the job requirements. 
+    Update your title, work experience, and skills.
+    Use only the skills that are on the candidate's resume {resume_text}.
+    Use the education data and contact information from the candidate's resume {resume_text}. 
+    Add measurable results where reasonable. For example:  
+    - "Used PyPDFLoader and pytesseract libraries to process documents in various formats (PDF, images), 
+      achieving 95% text extraction accuracy."
+    - "Implemented MMR (Maximal Marginal Relevance) algorithms, 
+      increasing the relevance of search results in the vector database by 20%."
+
+  expected_output: >
+    An updated resume in Markdown format, ready to be sent to the vacancy. 
+    The resume should be adapted to the specific vacancy so that it would 
+    be clear to the HR specialist that this candidate is ideally suited for this vacancy.
+    The updated resume should be in Russian.
+
+  output_file: outputs/tailored_resume.md
+  input_variables:
+    - resume_text  # ✅ Добавляем недостающий input!
+  context:
+    - analyze_job_posting
+    - analyze_resume
+  agent: resume_strategist
+
+prepare_technical_questions:
+  description: >
+    Make a list of questions for a technical interview.  
+    The questions must meet the requirements and skills described in the vacancy.
+    They can be about frameworks, programming languages, system architecture, databases.  
+    For each question, provide:
+    - The **expected answer** (if applicable).
+    - A **detailed explanation** of the concept.  
+    Example format:  
+    **Question:** What is the difference between TCP and UDP?  
+    **Answer:** TCP is connection-oriented, while UDP is connectionless.  
+    **Explanation:**  
+    - TCP ensures reliable data transmission by using acknowledgments and retransmissions.  
+    - UDP is faster but does not guarantee delivery.  
+  expected_output: >
+    A structured Markdown document with technical questions, categorized by topic (e.g.,  
+    Databases, System Design, etc.), each with an explanation and  
+    example answers. It should be in Russian. 
+  output_file: outputs/interview_material 
+  agent: interview_preparer 
+  context:
+  - analyze_job_posting
