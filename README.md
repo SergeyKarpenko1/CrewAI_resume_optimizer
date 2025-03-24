@@ -1,3 +1,6 @@
+
+![gamified_resume_ai_3120x800](https://github.com/user-attachments/assets/f7e4d838-8300-4d83-805e-32eff79dcea9)
+
 # Special Resume
 
 ## Содержание
@@ -96,7 +99,7 @@ special_resume/
 
 1. Клонировать репозиторий:
    ```bash
-   git clone <url-репозитория>
+   git clone https://github.com/SergeyKarpenko1/CrewAI_resume_optimizer.git
    cd Special_resume
    ```
 
