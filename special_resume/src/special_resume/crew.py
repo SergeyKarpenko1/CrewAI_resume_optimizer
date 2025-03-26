@@ -28,9 +28,11 @@ class SpecialResume:
 
     def __init__(self):
         self.llm = ChatOpenAI(
-            model="openrouter/anthropic/claude-3.7-sonnet",
+            # model="openrouter/anthropic/claude-3.7-sonnet",
+            model="openrouter/anthropic/claude-3.5-sonnet",
             openai_api_base="https://openrouter.ai/api/v1",
             openai_api_key=os.getenv("OPENROUTER_API_KEY"),
+            # openai_api_key=os.getenv("OPENAI_API_KEY"),
         )
         # self.llm = ChatOpenAI(
         #     model="gpt-4o-mini",  
@@ -62,13 +64,13 @@ class SpecialResume:
             llm=self.llm
         )
 
-    @agent
-    def interview_preparer(self) -> Agent:
-        return Agent(
-            config=self.agents_config["interview_preparer"],
-            verbose=True,
-            llm=self.llm
-        )
+    # @agent
+    # def interview_preparer(self) -> Agent:
+    #     return Agent(
+    #         config=self.agents_config["interview_preparer"],
+    #         verbose=True,
+    #         llm=self.llm
+    #     )
 
     @task
     def analyze_job_posting(self) -> Task:
@@ -86,15 +88,15 @@ class SpecialResume:
     def optimize_resume(self) -> Task:
         return Task(
             config=self.tasks_config["optimize_resume"],
-            output_file="outputs/tailored_resume.md"
+            output_file="Resume_Database/DeepPavlov.ai/tailored_resume.md"
         )
 
-    @task
-    def prepare_technical_questions(self) -> Task:
-        return Task(
-            config=self.tasks_config["prepare_technical_questions"],
-            output_file="outputs/interview_materials.md"
-        )
+    # @task
+    # def prepare_technical_questions(self) -> Task:
+    #     return Task(
+    #         config=self.tasks_config["prepare_technical_questions"],
+    #         output_file="Resume_Database/DeepPavlov.ai/interview_materials.md"
+    #     )
 
     @crew
     def crew(self) -> Crew:
@@ -137,7 +139,7 @@ def run_application_process(job_posting_url, resume_path="resume.pdf"):
 
     time.sleep(2)
 
-    tailored_resume_path = "outputs/tailored_resume.md"
+    tailored_resume_path = "Resume_Database/DeepPavlov.ai/tailored_resume.md"
     if os.path.exists(tailored_resume_path):
         print(f"✅ Оптимизированное резюме сохранено: {tailored_resume_path}")
     else:
@@ -146,6 +148,6 @@ def run_application_process(job_posting_url, resume_path="resume.pdf"):
 # ✅ **Запуск**
 if __name__ == "__main__":
     run_application_process(
-        "https://hh.ru/vacancy/118234235?from=employer&hhtmFrom=employer",
+        "https://ods.ai/jobs/61ee8196-136c-48d2-97de-e62710b45387",
         resume_path="/Users/sergey/Desktop/CrewAI/Special_resume/Kарпенко Сергей.pdf"
     )

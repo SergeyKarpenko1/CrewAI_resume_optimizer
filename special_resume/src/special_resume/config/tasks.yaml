@@ -59,11 +59,35 @@ optimize_resume:
     Update your title, work experience, and skills.
     Use only the skills that are on the candidate's resume {resume_text}.
     Use the education data and contact information from the candidate's resume {resume_text}. 
-    Add measurable results where reasonable. For example:  
-    - "Used PyPDFLoader and pytesseract libraries to process documents in various formats (PDF, images), 
-      achieving 95% text extraction accuracy."
-    - "Implemented MMR (Maximal Marginal Relevance) algorithms, 
-      increasing the relevance of search results in the vector database by 20%."
+    The experience in the resume should be listed in chronological descending order.
+    The description of the experience should be like in a resume, THERE is NO NEED to mix 
+    and mix the experience from one place of work to another.
+    
+    The resume format can be described as follows:
+    1. Header
+    • First and last name with stylistic emphasis (large font).
+    • Brief information about the location (city/country).
+    • Contact information (email, link to LinkedIn profile).
+    2. “Summary” section
+      • A short overview of professional experience and core competencies.
+      • Focus on the strengths and achievements indicated in a concise form.
+      3. Work Experience
+    • Indication of the position and company, as well as the period of work (format: MM YYYY – MM YYYY).
+    • List of main responsibilities and achievements in the form of bullet points.
+      • Focus on quantitative results (percentages, performance indicators).
+      4. Projects (if specified)
+    • The short name of the project.
+      • A short description of the project's purpose or objective.
+      • The candidate's results and contributions (preferably with specific numerical indicators).
+      5. Skills
+      • A list of key professional and technical skills in the form of a list.
+      6. Education
+    • Name of the educational institution, specialty, years of study (if necessary).
+      • You can additionally specify course/academic achievements.
+      7. Certificates (if specified):
+    • A list of certificates received, indicating the year of receipt and the name of the issuing organization.
+      8. Awards(if specified)
+    • Brief mention of awards and recognitions (title, year of receipt).
 
   expected_output: >
     An updated resume in Markdown format, ready to be sent to the vacancy. 
@@ -79,25 +103,25 @@ optimize_resume:
     - analyze_resume
   agent: resume_strategist
 
-prepare_technical_questions:
-  description: >
-    Make a list of questions for a technical interview.  
-    The questions must meet the requirements and skills described in the vacancy.
-    They can be about frameworks, programming languages, system architecture, databases.  
-    For each question, provide:
-    - The **expected answer** (if applicable).
-    - A **detailed explanation** of the concept.  
-    Example format:  
-    **Question:** What is the difference between TCP and UDP?  
-    **Answer:** TCP is connection-oriented, while UDP is connectionless.  
-    **Explanation:**  
-    - TCP ensures reliable data transmission by using acknowledgments and retransmissions.  
-    - UDP is faster but does not guarantee delivery.  
-  expected_output: >
-    A structured Markdown document with technical questions, categorized by topic (e.g.,  
-    Databases, System Design, etc.), each with an explanation and  
-    example answers. It should be in Russian. 
-  output_file: outputs/interview_material 
-  agent: interview_preparer 
-  context:
-  - analyze_job_posting
+# prepare_technical_questions:
+#   description: >
+#     Make a list of questions for a technical interview.  
+#     The questions must meet the requirements and skills described in the vacancy.
+#     They can be about frameworks, programming languages, system architecture, databases.  
+#     For each question, provide:
+#     - The **expected answer** (if applicable).
+#     - A **detailed explanation** of the concept.  
+#     Example format:  
+#     **Question:** What is the difference between TCP and UDP?  
+#     **Answer:** TCP is connection-oriented, while UDP is connectionless.  
+#     **Explanation:**  
+#     - TCP ensures reliable data transmission by using acknowledgments and retransmissions.  
+#     - UDP is faster but does not guarantee delivery.  
+#   expected_output: >
+#     A structured Markdown document with technical questions, categorized by topic (e.g.,  
+#     Databases, System Design, etc.), each with an explanation and  
+#     example answers. It should be in Russian. 
+#   output_file: outputs/interview_material 
+#   agent: interview_preparer 
+#   context:
+#   - analyze_job_posting
