@@ -103,25 +103,25 @@ optimize_resume:
     - analyze_resume
   agent: resume_strategist
 
-# prepare_technical_questions:
-#   description: >
-#     Make a list of questions for a technical interview.  
-#     The questions must meet the requirements and skills described in the vacancy.
-#     They can be about frameworks, programming languages, system architecture, databases.  
-#     For each question, provide:
-#     - The **expected answer** (if applicable).
-#     - A **detailed explanation** of the concept.  
-#     Example format:  
-#     **Question:** What is the difference between TCP and UDP?  
-#     **Answer:** TCP is connection-oriented, while UDP is connectionless.  
-#     **Explanation:**  
-#     - TCP ensures reliable data transmission by using acknowledgments and retransmissions.  
-#     - UDP is faster but does not guarantee delivery.  
-#   expected_output: >
-#     A structured Markdown document with technical questions, categorized by topic (e.g.,  
-#     Databases, System Design, etc.), each with an explanation and  
-#     example answers. It should be in Russian. 
-#   output_file: outputs/interview_material 
-#   agent: interview_preparer 
-#   context:
-#   - analyze_job_posting
+prepare_technical_questions:
+  description: >
+    Make a list of questions for a technical interview.  
+    The questions must meet the requirements and skills described in the vacancy.
+    They can be about frameworks, programming languages, system architecture, databases.  
+    For each question, provide:
+    - The **expected answer** (if applicable).
+    - A **detailed explanation** of the concept.  
+    Example format:  
+    **Question:** What is the difference between TCP and UDP?  
+    **Answer:** TCP is connection-oriented, while UDP is connectionless.  
+    **Explanation:**  
+    - TCP ensures reliable data transmission by using acknowledgments and retransmissions.  
+    - UDP is faster but does not guarantee delivery.  
+  expected_output: >
+    A structured Markdown document with technical questions, categorized by topic (e.g.,  
+    Databases, System Design, etc.), each with an explanation and  
+    example answers. It should be in Russian. 
+  output_file: outputs/interview_material 
+  agent: interview_preparer 
+  context:
+  - analyze_job_posting
