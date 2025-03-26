@@ -1,3 +1,6 @@
+
+![gamified_resume_ai_3120x800](https://github.com/user-attachments/assets/f7e4d838-8300-4d83-805e-32eff79dcea9)
+
 # Special Resume
 
 ## Содержание
@@ -96,7 +99,7 @@ special_resume/
 
 1. Клонировать репозиторий:
    ```bash
-   git clone <url-репозитория>
+   git clone https://github.com/SergeyKarpenko1/CrewAI_resume_optimizer.git
    cd Special_resume
    ```
 
@@ -219,7 +222,31 @@ Special Resume специализируется на подготовке к т�
 
 ## Лицензия
 
-Данный проект является проприетарным и не подлежит распространению без явного разрешения.
+Проект распространяется под лицензией MIT.
+
+```
+MIT License
+
+Copyright (c) 2023 Карпенко Сергей
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
 
 ## Автор
 
