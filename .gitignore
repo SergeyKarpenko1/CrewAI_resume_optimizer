@@ -1,3 +1,15 @@
 .env
 __pycache__/
 outputs/.env
+.env
+__pycache__/
+outputs/
+
+# macOS system file
+.DS_Store
+
+# Локальная база резюме
+Resume_Database/
+
+# PDF-файлы с кириллицей в имени (общий шаблон)
+*.pdf
